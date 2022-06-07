@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="stylesheet.xsl" type="text/xsl"?>
+<rss version="2.0"
+    xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <channel>
+    <title>Siejmy</title>
+    <itunes:owner>
+        <itunes:email>siejmy.pl@gmail.com</itunes:email>
+    </itunes:owner>
+    <itunes:author>Siejmy</itunes:author>
+    <description>E-magazyn katolicki dla młodych</description>
+    <itunes:image href="http://localhost:8080/siejmy5-pocast-3000.png"/>
+    <image>
+      <url>http://localhost:8080/siejmy5-pocast-3000.png</url>
+      <title>Siejmy</title>
+      <link>https://siejmy.pl/podcast</link>
+    </image>
+    <language>pl-pl</language>
+    <link>https://www.siejmy.pl/podcast/</link>
+
+    <item>
+      <title>Top 10 myths about caring for a zebra</title>
+      <description>Here are the top 10 misunderstandings about the care, feeding, and breeding of these lovable striped animals.</description>
+      <pubDate>Tue, 14 Mar 2017 12:00:00 GMT</pubDate>
+      <enclosure url="https://www.example.com/podcasts/dafnas-zebras/audio/toptenmyths.mp3"
+                 type="audio/mpeg" length="34216300"/>
+      <itunes:duration>30:00</itunes:duration>
+      <guid isPermaLink="false">dzpodtop10</guid>
+    </item>
+
+    <item>
+      <title>Keeping those stripes neat and clean</title>
+      <description>Keeping your zebra clean is time consuming, but worth the effort.</description>
+      <pubDate>Fri, 24 Feb 2017 12:00:00 GMT</pubDate>
+      <enclosure url="https://www.example.com/podcasts/dafnas-zebras/audio/cleanstripes.mp3"
+                 type="audio/mpeg" length="26004388"/>
+      <itunes:duration>22:48</itunes:duration>
+      <guid>dzpodclean</guid>
+    </item>
+  </channel>
+</rss>
