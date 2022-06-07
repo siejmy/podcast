@@ -27,7 +27,7 @@ jobs:
         env:
           DEPLOYMENT_ENV: ${{ secrets.DEPLOYMENT_ENV_STAGING }}
 
-       - name: "Setup ssh key"
+      - name: "Setup ssh key"
         env:
           SSH_PRIVKEY: ${{ secrets.DEPLOYMENT_SSH_PRIVKEY }}
         run: |
