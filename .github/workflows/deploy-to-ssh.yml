@@ -1,0 +1,37 @@
+name: Deploy to SSH
+
+on:
+  push:
+    branches:
+      - main
+      - staging
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+
+      - name: "Setup production env"
+        if: github.ref_name == 'main'
+        run: echo "${DEPLOYMENT_ENV}" > .env
+        env:
+          DEPLOYMENT_ENV: ${{ secrets.DEPLOYMENT_ENV_PRODUCTION }}
+
+      - name: "Setup staging env"
+        if: github.ref_name == 'main'
+        run: echo "${DEPLOYMENT_ENV}" > .env
+        env:
+          DEPLOYMENT_ENV: ${{ secrets.DEPLOYMENT_ENV_STAGING }}
+
+       - name: "Setup ssh key"
+        env:
+          SSH_PRIVKEY: ${{ secrets.DEPLOYMENT_SSH_PRIVKEY }}
+        run: |
+          echo "${SSH_PRIVKEY}" > .ssh.privkey
+          chmod 0600 .ssh.privkey
+
+      - run: ./deploy.sh

@@ -4,7 +4,7 @@ cd "${DIR}"
 set -e
 set -x
 
-source .env.deployment
+source .env
 
 echo "Syncing root files"
   src_dir="${DIR}/public/"
