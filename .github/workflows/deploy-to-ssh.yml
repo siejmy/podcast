@@ -22,7 +22,7 @@ jobs:
           DEPLOYMENT_ENV: ${{ secrets.DEPLOYMENT_ENV_PRODUCTION }}
 
       - name: "Setup staging env"
-        if: github.ref_name == 'main'
+        if: github.ref_name == 'staging'
         run: echo "${DEPLOYMENT_ENV}" > .env
         env:
           DEPLOYMENT_ENV: ${{ secrets.DEPLOYMENT_ENV_STAGING }}
