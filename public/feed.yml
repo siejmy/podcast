@@ -8,7 +8,7 @@ cover:
   image_path: "img/podcast-stworzona-okladka-3000x3000.png"
   # Max 3 categories
 itunes_categories: # https://support.google.com/podcast-publishers/answer/9889544?hl=pl#zippy=%2Czalecane-kategorie
-  - "Religion &amp; Spirituality"
+  - "Religion"
   - "Society &amp; Culture"
 episodes:
   - title: Kobiece kompleksy. Czy jesteśmy na nie skazane? Jak je oswoić?
