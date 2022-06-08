@@ -1,0 +1,14 @@
+title: Stworzona
+description: Portal dla kobiet redagowany przez kobiety. Lubimy celebrować kobiecość i wkładać kij w mrowisko. Poza doczesnością widzimy także wieczność. Jesteśmy częścią Grupy Siejmy.
+owner:
+  email: siejmy.pl@gmail.com
+cover:
+  image_path: "img/podcast-stworzona-okladka-3000x3000.png"
+episodes:
+  - title: Kobiece kompleksy. Czy jesteśmy na nie skazane? Jak je oswoić?
+    description: |
+      Zmora wielu kobiet — kompleksy.
+      Rozmawiamy o tym, skąd się biorą,
+      czy każda z nas musi je mieć i jak je oswoić.
+    audio_path: "audio/kompleksy_v3.mp3"
+    date: 2022-06-08T21:20
