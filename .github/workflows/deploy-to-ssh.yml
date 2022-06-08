@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          submodules: "recursive"
+          lfs: true
 
       - uses: denoland/setup-deno@v1
         with:
