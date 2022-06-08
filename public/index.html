@@ -1,47 +1,72 @@
 <!DOCTYPE html>
-<title>Modernizacja</title>
-<style>
-  body {
-    text-align: center;
-    padding: 150px;
-  }
+<html lang="pl">
 
-  h1 {
-    font-size: 50px;
-  }
+<head>
+  <meta charset="utf-8">
+  <title>Podcast Stworzona.pl</title>
+  <style>
+    body {
+      text-align: center;
+      padding: 150px;
+    }
 
-  body {
-    font: 20px Helvetica, sans-serif;
-    color: #333;
-  }
+    h1 {
+      font-size: 50px;
+    }
 
-  article {
-    display: block;
-    text-align: left;
-    width: 650px;
-    margin: 0 auto;
-  }
+    body {
+      font: 20px Helvetica, sans-serif;
+      color: #333;
+    }
 
-  a {
-    color: #dc8100;
-    text-decoration: none;
-  }
+    article {
+      display: block;
+      text-align: left;
+      width: 850px;
+      margin: 0 auto;
+    }
 
-  a:hover {
-    color: #333;
-    text-decoration: none;
-  }
-</style>
+    a {
+      color: #3ace00;
+      text-decoration: none;
+    }
 
-<article>
-  <h1>Podcast siejmy.pl</h1>
-  <div>
-    <p>
-      Zapraszamy do <a href="feed.xml">posłuchania podcastu Siejmy</a>.
-    </p>
-    <p>&mdash; Zespół Siejmy</p>
-    <p>
-      <small><a href="https://siejmy.pl/">Wróć do strony głównej Siejmy</a></small>
-    </p>
-  </div>
-</article>
+    a:hover {
+      color: #333;
+      text-decoration: none;
+    }
+
+    .cover-img {
+      float: right;
+      width: 350px;
+      height: 350px;
+      margin-left: 16px;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <a href="feed.xml">
+      <img class="cover-img" src="img/podcast-stworzona-okladka-512x512.png" alt="Okładka podcastu stworzona.pl" />
+    </a>
+
+    <h1>Podcast Stworzona.pl</h1>
+    <div>
+      <p>
+        Podcast dla kobiet redagowany przez kobiety. Lubimy celebrować kobiecość i wkładać kij w mrowisko. Poza
+        doczesnością widzimy także wieczność.
+      </p>
+      <p>
+        Posłuchaj: <a href="feed.xml">podcast Stworzona</a>.
+      </p>
+      <p style="text-align: right">&mdash; Gabrysia, Dominika i Agnieszka</p>
+      <p style="text-align: right">
+        <small><a href="https://stworzona.pl/" style="color: #999;">Wróć do strony głównej Stworzona.pl</a></small>
+      </p>
+    </div>
+  </article>
+</body>
+
+</html>
