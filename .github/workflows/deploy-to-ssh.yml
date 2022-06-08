@@ -15,6 +15,10 @@ jobs:
         with:
           submodules: "recursive"
 
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.19.x
+
       - name: "Setup production env"
         if: github.ref_name == 'main'
         run: echo "${DEPLOYMENT_ENV}" > .env
@@ -34,4 +38,5 @@ jobs:
           echo "${SSH_PRIVKEY}" > .ssh.privkey
           chmod 0600 .ssh.privkey
 
+      - run: ./build.sh
       - run: ./deploy.sh
