@@ -39,6 +39,9 @@
       "editor.codeActionsOnSave": {
         "source.fixAll.eslint": false
       }
-    }
+    },
+    "deno.enable": true,
+    "deno.lint": true,
+    "deno.unstable": true
   }
 }
