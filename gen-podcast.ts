@@ -58,6 +58,7 @@ function generatePodcastXML(globalConfig: typeof config, podcast: ReturnType<typ
     <itunes:author>${podcast.author.name}</itunes:author>
     <description>${podcast.description}</description>
     <itunes:image href="${globalConfig.baseURL}/${podcast.cover.image_path}"/>
+    <itunes:explicit>no</itunes:explicit>
     <image>
       <url>${globalConfig.baseURL}/${podcast.cover.image_path}</url>
       <title>${podcast.title}</title>
