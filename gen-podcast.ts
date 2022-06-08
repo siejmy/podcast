@@ -27,6 +27,7 @@ function loadPodcastConfig(baseDir: string, path: string) {
     cover: {
       image_path: string.test((image_path) => Deno.statSync(`${baseDir}/${image_path}`).isFile)
     },
+    itunes_categories: array.of(string.trim()),
     episodes: array.of({
       title: string.trim().normalize().between(3, 70),
       description: string.trim().normalize(),
@@ -64,6 +65,7 @@ function generatePodcastXML(globalConfig: typeof config, podcast: ReturnType<typ
     </image>
     <language>${globalConfig.language}</language>
     <link>${globalConfig.baseURL}</link>
+    ${podcast.itunes_categories.map(categoryName => `<itunes:category text="${categoryName}"/>`).join("\n")}
     ${podcast.episodes.map(episode => `
     <item>
       <title>${episode.title}</title>
