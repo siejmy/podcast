@@ -6,7 +6,7 @@ const config = {
   baseDir: "public",
   srcConfig: "feed.yml",
   dstConfig: "feed.xml",
-  baseURL: "http://localhost:8080",// "https://stworzona.pl/podcast",
+  baseURL: "https://stworzona.pl/podcast",
   language: "pl-pl",
   episodeFilename: (guid: string) => `episode-${guid}.xml`
 }
