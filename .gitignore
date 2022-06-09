@@ -3,3 +3,4 @@
 .env.staging
 .env.production
 public/feed.xml
+public/episode-*

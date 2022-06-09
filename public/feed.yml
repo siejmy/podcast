@@ -4,6 +4,12 @@ owner:
   email: siejmy.pl@gmail.com
 author:
   name: Siejmy
+maintainer:
+  name: Stworzona.pl
+  link: https://stworzona.pl
+  group:
+    name: Siejmy
+    link: https://siejmy.pl
 cover:
   image_path: "img/podcast-stworzona-okladka-3000x3000.jpg"
   # Max 3 categories

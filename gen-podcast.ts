@@ -6,13 +6,20 @@ const config = {
   baseDir: "public",
   srcConfig: "feed.yml",
   dstConfig: "feed.xml",
-  baseURL: "https://stworzona.pl/podcast",
+  baseURL: "http://localhost:8080",// "https://stworzona.pl/podcast",
   language: "pl-pl",
+  episodeFilename: (guid: string) => `episode-${guid}.xml`
 }
 
 const podcastConfig = loadPodcastConfig(config.baseDir, config.srcConfig)
 const podcastXML = generatePodcastXML(config, podcastConfig)
 Deno.writeTextFileSync(`${config.baseDir}/${config.dstConfig}`, podcastXML)
+for (const episode of podcastConfig.episodes) {
+  Deno.writeTextFileSync(
+    config.baseDir + "/" + config.episodeFilename(getEpisodeGUID(episode)),
+    generateEpisodeXML(config, podcastConfig, episode)
+  )
+}
 
 function loadPodcastConfig(baseDir: string, path: string) {
   const PodcastConfigSchema = Schema({
@@ -23,6 +30,14 @@ function loadPodcastConfig(baseDir: string, path: string) {
     },
     author: {
       name: string.trim().normalize(),
+    },
+    maintainer: {
+      name: string.trim().normalize(),
+      link: string.trim().normalize(),
+      group: {
+        name: string.trim().normalize(),
+        link: string.trim().normalize(),
+      },
     },
     cover: {
       image_path: string.test((image_path) => Deno.statSync(`${baseDir}/${image_path}`).isFile)
@@ -52,6 +67,14 @@ function generatePodcastXML(globalConfig: typeof config, podcast: ReturnType<typ
     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   <channel>
     <title>${podcast.title}</title>
+    <maintainer>
+      <name>${podcast.maintainer.name}</name>
+      <link>${podcast.maintainer.link}</link>
+      <group>
+        <name>${podcast.maintainer.group.name}</name>
+        <link>${podcast.maintainer.group.link}</link>
+      </group>
+    </maintainer>
     <itunes:owner>
         <itunes:email>${podcast.owner.email}</itunes:email>
     </itunes:owner>
@@ -77,7 +100,7 @@ function generatePodcastXML(globalConfig: typeof config, podcast: ReturnType<typ
         type="audio/mpeg"
         length="${getFileSizeBytes(`${globalConfig.baseDir}/${episode.audio_path}`)}"
       />
-      <itunes:duration>${getMP3HMSDuration(`${globalConfig.baseDir}/${episode.audio_path}`)}</itunes:duration>
+      <itunes:duration>${getMP3DurationSeconds(`${globalConfig.baseDir}/${episode.audio_path}`)}</itunes:duration>
       <guid isPermaLink="false">${getEpisodeGUID(episode)}</guid>
     </item>
     `).join("\n\n")}
@@ -86,14 +109,35 @@ function generatePodcastXML(globalConfig: typeof config, podcast: ReturnType<typ
   `
 }
 
+function generateEpisodeXML(globalConfig: typeof config, podcast: ReturnType<typeof loadPodcastConfig>, episode: ReturnType<typeof loadPodcastConfig>["episodes"][0]) {
+  return `<?xml version="1.0" encoding="UTF-8"?>
+  <?xml-stylesheet href="${globalConfig.baseURL}/stylesheet-episode.xsl" type="text/xsl"?>
+  <episode version="2.0">
+    <podcast>
+      <title>${podcast.title}</title>
+      <link>${globalConfig.baseDir}</link>
+      <feed>${globalConfig.baseDir}/${globalConfig.dstConfig}</feed>
+    </podcast>
+    <title>${episode.title}</title>
+    <description>${episode.description}</description>
+    <pubDate>${episode.date.toUTCString()}</pubDate>
+    <enclosure
+        url="${globalConfig.baseURL}/${episode.audio_path}"
+        type="audio/mpeg"
+        length="${getFileSizeBytes(`${globalConfig.baseDir}/${episode.audio_path}`)}"
+    />
+  </episode>
+    `
+}
+
 function getFileSizeBytes(path: string): number {
   return Deno.lstatSync(path).size
 }
 
-function getMP3HMSDuration(path: string) {
-  return new MP3Duration().getDurationInHMSString(Deno.readFileSync(path))
+function getMP3DurationSeconds(path: string) {
+  return new MP3Duration().getDurationInSeconds(Deno.readFileSync(path))
 }
 
 function getEpisodeGUID(episode: { audio_path: string, date: Date }): string {
-  return episode.audio_path.replaceAll(/[^a-zA-Z0-9]/g, "") + episode.date.getFullYear()
+  return episode.date.getFullYear() + "_" + episode.audio_path.replaceAll(/[^a-zA-Z0-9]/g, "")
 }
