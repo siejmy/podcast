@@ -4,6 +4,10 @@ owner:
   email: siejmy.pl@gmail.com
 author:
   name: Siejmy
+platforms:
+  spotify:
+    link: https://open.spotify.com/show/0Vbr6Wh80wBLdvkohq7NHs
+    badge_image_path: img/spotify-badge.svg
 maintainer:
   name: Stworzona.pl
   link: https://stworzona.pl

@@ -39,6 +39,13 @@ function loadPodcastConfig(baseDir: string, path: string) {
         link: string.trim().normalize(),
       },
     },
+    platforms: Schema.record(
+      string,
+      Schema({
+        link: string,
+        badge_image_path: string.test(audio_path => Deno.statSync(`${baseDir}/${audio_path}`).isFile)
+      })
+    ),
     cover: {
       image_path: string.test((image_path) => Deno.statSync(`${baseDir}/${image_path}`).isFile)
     },
