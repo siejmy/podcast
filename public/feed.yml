@@ -29,3 +29,13 @@ episodes:
       czy każda z nas musi je mieć i jak je oswoić.
     audio_path: "audio/kompleksy_v3.mp3"
     date: 2022-06-08T21:20
+
+
+  - guid: 2022_06_20_styl
+    title: Własny styl. Jak go odnaleźć?
+    description: |
+     Moda przemija, styl pozostaje. Rozmawiamy o tym,
+     jaki mamy styl, jak go odnalazłyśmy
+     i czym można się inspirować w poszukiwaniach.
+    audio_path: "audio/2022_06_22_styl.mp3"
+    date: 2022-06-20T19:34
