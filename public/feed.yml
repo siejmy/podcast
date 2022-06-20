@@ -21,7 +21,8 @@ itunes_categories: # https://support.google.com/podcast-publishers/answer/988954
   - "Religion"
   - "Society &amp; Culture"
 episodes:
-  - title: Kobiece kompleksy. Czy jesteśmy na nie skazane? Jak je oswoić?
+  - guid: 2022_audiokompleksyv3mp3
+    title: Kobiece kompleksy. Czy jesteśmy na nie skazane? Jak je oswoić?
     description: |
       Zmora wielu kobiet — kompleksy.
       Rozmawiamy o tym, skąd się biorą,
