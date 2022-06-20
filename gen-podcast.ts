@@ -16,7 +16,7 @@ const podcastXML = generatePodcastXML(config, podcastConfig)
 Deno.writeTextFileSync(`${config.baseDir}/${config.dstConfig}`, podcastXML)
 for (const episode of podcastConfig.episodes) {
   Deno.writeTextFileSync(
-    config.baseDir + "/" + config.episodeFilename(getEpisodeGUID(episode)),
+    config.baseDir + "/" + config.episodeFilename(episode.guid),
     generateEpisodeXML(config, podcastConfig, episode)
   )
 }
@@ -54,7 +54,8 @@ function loadPodcastConfig(baseDir: string, path: string) {
       title: string.trim().normalize().between(3, 70),
       description: string.trim().normalize(),
       audio_path: string.test(audio_path => audio_path.endsWith(".mp3")).test(audio_path => Deno.statSync(`${baseDir}/${audio_path}`).isFile),
-      date: string.transform(dateNoTZ => `${dateNoTZ}+01:00`).test(date => new Date(date).getTime() > 0).transform(date => new Date(date))
+      date: string.transform(dateNoTZ => `${dateNoTZ}+01:00`).test(date => new Date(date).getTime() > 0).transform(date => new Date(date)),
+      guid: string.trim().normalize().between(3, 70),
     }),
   }, { strict: true });
   const rawConfig = parseYAML(Deno.readTextFileSync(`${baseDir}/${path}`))
@@ -108,7 +109,7 @@ function generatePodcastXML(globalConfig: typeof config, podcast: ReturnType<typ
         length="${getFileSizeBytes(`${globalConfig.baseDir}/${episode.audio_path}`)}"
       />
       <itunes:duration>${getMP3DurationSeconds(`${globalConfig.baseDir}/${episode.audio_path}`)}</itunes:duration>
-      <guid isPermaLink="false">${getEpisodeGUID(episode)}</guid>
+      <guid isPermaLink="false">${episode.guid}</guid>
     </item>
     `).join("\n\n")}
   </channel>
@@ -143,8 +144,4 @@ function getFileSizeBytes(path: string): number {
 
 function getMP3DurationSeconds(path: string) {
   return new MP3Duration().getDurationInSeconds(Deno.readFileSync(path))
-}
-
-function getEpisodeGUID(episode: { audio_path: string, date: Date }): string {
-  return episode.date.getFullYear() + "_" + episode.audio_path.replaceAll(/[^a-zA-Z0-9]/g, "")
 }
