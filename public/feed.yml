@@ -39,3 +39,10 @@ episodes:
      i czym można się inspirować w poszukiwaniach.
     audio_path: "audio/2022_06_22_styl.mp3"
     date: 2022-06-20T19:34
+
+  - guid: 2023_01_02_jezyk_ksztaltuje_rzeczywistosc
+    title: Język kształtuje rzeczywistość?
+    description: |
+     Jak mówimy, a jak powinnyśmy mówić. Feminatywy, wulgaryzmy, kolokwializmy.
+    audio_path: "audio/2023_01_02_jezyk_ksztaltuje_rzeczywistosc.mp3"
+    date: 2023-01-02T09:03
