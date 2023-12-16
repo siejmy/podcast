@@ -40,6 +40,27 @@ episodes:
     audio_path: "audio/2022_06_22_styl.mp3"
     date: 2022-06-20T19:34
 
+  - guid: 2023_01_02_jezyk_ksztaltuje_rzeczywistosc
+    title: Język kształtuje rzeczywistość?
+    description: |
+     Jak mówimy, a jak powinnyśmy mówić. Feminatywy, wulgaryzmy, kolokwializmy.
+    audio_path: "audio/2023_01_02_jezyk_ksztaltuje_rzeczywistosc.mp3"
+    date: 2023-01-02T09:03
+
+  - guid: 2023_03_19_jak_umilic_sobie_obowiazki_domowe
+    title: Jak umilić sobie obowiązki domowe?
+    description: |
+      Jak łączymy przyjemne z pożytecznym? Nasze sposoby na to, żeby prace domowe nie
+      przyprawiały o zawrót głowy.
+    audio_path: "audio/2023_03_19_jak_umilic_sobie_obowiazki_domowe.mp3"
+    date: 2023-03-19T12:30
+
+  - guid: 2023_03_26_co_ogladamy_co_czytamy
+    title: Co oglądamy? Co czytamy?
+    description: Nasze polecenia książkowe, filmowe i serialowe.
+    audio_path: "audio/2023_03_26_co_ogladamy_co_czytamy.mp3"
+    date: 2023-03-26T10:00
+
   - guid: 2023_12_16_jak_bezstresowo_przezyc_swieta
     title: Jak bezstresowo przeżyć Święta?
     description: |
